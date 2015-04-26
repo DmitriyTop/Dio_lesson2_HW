@@ -1,8 +1,11 @@
 package com.ls2;
 
+import com.sun.corba.se.impl.io.ObjectStreamClass;
+import jdk.nashorn.internal.runtime.regexp.joni.ast.Node;
+
 public class Person {
     private final String name;
-    private Position position;
+    private final Position position;
     private final String phone;
     private final String email;
 
@@ -11,6 +14,22 @@ public class Person {
         this.position = position;
         this.phone = phone;
         this.email = email;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public Position getPos() {
+        return position;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getMail() {
+        return email;
     }
 
     @Override
@@ -23,7 +42,6 @@ public class Person {
         if (!name.equals(that.name)) return false;
         if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
         return !(email != null ? !email.equals(that.email) : that.email != null);
-
     }
 
     @Override
@@ -34,3 +52,4 @@ public class Person {
         return result;
     }
 }
+
